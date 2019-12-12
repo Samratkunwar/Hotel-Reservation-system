@@ -11,6 +11,14 @@ var express                 = require('express'),
     bodyParser              = require('body-parser'),
     mongoose                = require('mongoose');
 
+// importing routes
+
+var roomRoutes = require('./routes/room');
+
+// malware addition
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
 
 mongoose.connect(https, {useUnifiedTopology: true, useNewUrlParser: true}, function(err, res){
     if(err){
@@ -23,6 +31,10 @@ mongoose.connect(https, {useUnifiedTopology: true, useNewUrlParser: true}, funct
 
 // connecting public files to the html
 app.use(express.static(__dirname + '/public'));
+
+//=========================================================Routes=============================================//
+
+app.use(roomRoutes)
 
 // ==========================================================================================================//
 
