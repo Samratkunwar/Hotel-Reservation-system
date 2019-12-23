@@ -10,4 +10,8 @@ router.get('/', function(req, res){
 });
 
 
+router.get('demo', function(req, res){
+    res.render('header');
+})
+
 module.exports = router;
